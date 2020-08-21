@@ -21,6 +21,7 @@ const HomePage = (props) => {
             post_url={post.post_url}
             like={post.like}
             caption={post.caption}
+            comments={post.comments}
           ></Post>
         ))}
       </div>

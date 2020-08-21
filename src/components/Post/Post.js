@@ -8,7 +8,6 @@ import PostHeader from "./PostHeader/PostHeader";
 import PostListComment from "./PostListComment/PostListComment";
 
 const Post = (props) => {
-  console.log(props);
   return (
     <div className="post">
       <PostHeader
@@ -22,7 +21,7 @@ const Post = (props) => {
         username={props.username}
         caption={props.caption}
       ></PostCaption>
-      <PostListComment></PostListComment>
+      <PostListComment comments = {props.comments}></PostListComment>
       <PostInputComment></PostInputComment>
     </div>
   );

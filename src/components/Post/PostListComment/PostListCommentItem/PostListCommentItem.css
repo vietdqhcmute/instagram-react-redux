@@ -1,0 +1,13 @@
+.comment-item {
+  display: flex;
+  padding: 5px 16px;
+  font-size: 0.9rem;
+}
+.comment-item__avatar {
+  margin-right: 18px;
+}
+.comment-item__username {
+  font-weight: bolder;
+}
+.comment-item__text {
+}

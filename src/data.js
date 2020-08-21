@@ -18,7 +18,29 @@ const data = [
     post_url:
       "https://instagram.fsgn5-7.fna.fbcdn.net/v/t51.2885-15/e35/117759132_347407886269219_787269791475855959_n.jpg?_nc_ht=instagram.fsgn5-7.fna.fbcdn.net&_nc_cat=1&_nc_ohc=S3C6PfycFAwAX9-hwRS&oh=9124e0bd7b5987efe5c61407c4c18e05&oe=5F6812FC",
     username: "blackpink_official",
-    comments: [{}],
+    comments: [
+      {
+        key: "wqeqasfz",
+        avatar_url:
+          "https://scontent.fsgn5-1.fna.fbcdn.net/v/t1.0-9/83067209_2503666736575500_2763457244728131584_o.jpg?_nc_cat=101&_nc_sid=09cbfe&_nc_ohc=BAM-Lydpw84AX_XeAa3&_nc_ht=scontent.fsgn5-1.fna&oh=405ec498b6338e7905cd22b101b60e85&oe=5F609B83",
+        comment: "Hello Black Pink",
+        username: "pdao.97",
+      },
+      {
+        key: "asdzasfz",
+        avatar_url:
+          "https://scontent.fsgn5-1.fna.fbcdn.net/v/t1.0-9/83067209_2503666736575500_2763457244728131584_o.jpg?_nc_cat=101&_nc_sid=09cbfe&_nc_ohc=BAM-Lydpw84AX_XeAa3&_nc_ht=scontent.fsgn5-1.fna&oh=405ec498b6338e7905cd22b101b60e85&oe=5F609B83",
+        comment: "It's me again",
+        username: "pdao.97",
+      },
+      {
+        key: "anything",
+        avatar_url:
+          "https://scontent.fsgn5-1.fna.fbcdn.net/v/t1.0-9/83067209_2503666736575500_2763457244728131584_o.jpg?_nc_cat=101&_nc_sid=09cbfe&_nc_ohc=BAM-Lydpw84AX_XeAa3&_nc_ht=scontent.fsgn5-1.fna&oh=405ec498b6338e7905cd22b101b60e85&oe=5F609B83",
+        username: "pdao.97",
+        comment:"Jisoo queen spoiler. See she is said tomorrow and now poster huhuu i love her so much. SELPINK IS COMING."
+      }
+    ],
   },
   {
     key: "gqiuwhensajdnaskjheqwe",
