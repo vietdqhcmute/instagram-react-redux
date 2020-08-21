@@ -1,0 +1,13 @@
+.post-header{
+  display: flex;
+  align-items: center;
+  padding: 14px 16px;
+}
+.post-header__avatar{
+  border: 2px solid rgb(192, 23, 178);
+
+}
+.post-header__username{
+  margin-left: 10px;
+
+}

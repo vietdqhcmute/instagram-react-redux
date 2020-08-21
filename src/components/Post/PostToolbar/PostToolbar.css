@@ -1,0 +1,7 @@
+.post-tool-bar {
+  display: flex;
+  padding: 10px 16px;
+}
+.post-tool-bar__item {
+  margin-right: 15px;
+}

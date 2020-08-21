@@ -1,0 +1,19 @@
+.post-comment {
+}
+.post-comment__input {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.post-comment__input_textarea {
+  width: 100%;
+  border: none;
+  border-style: none;
+  border-color: Transparent;
+  overflow: auto;
+  padding: 7px 16px;
+  resize: none;
+}
+textarea:focus {
+  outline: none !important;
+}
