@@ -1,8 +1,9 @@
 // import { db } from "../firebase";
-import data from "../data";
+import { posts, currentUser } from "../data";
 
 const INTIAL_STATE = {
   posts: [],
+  currentUser: {},
 };
 
 const reducer = (state = INTIAL_STATE, action) => {
@@ -15,28 +16,17 @@ const reducer = (state = INTIAL_STATE, action) => {
       //   }));
       return {
         ...state,
-        posts: state.posts.concat(data),
+        posts: state.posts.concat(posts),
       };
-    case "DECREMENT":
+    case "POST_COMMENT_BY_POST_ID":
+      console.log(action)
+      return {
+        ...state
+      };
+    case "GET_CURRENT_USER_INFO":
       return {
         ...state,
-        counter: state.counter - 1,
-      };
-    case "ADD":
-      return {
-        ...state,
-        counter: state.counter + action.val,
-      };
-    case "SUB":
-      return {
-        ...state,
-        counter: state.counter - action.val,
-      };
-    case "STORE_RESULT":
-      console.log(state);
-      return {
-        ...state,
-        results: state.results.concat(state.counter),
+        currentUser: currentUser,
       };
     default:
       return state;

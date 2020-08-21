@@ -1,4 +1,4 @@
-const data = [
+const posts = [
   // {
   //   key: "",
   //   avatart_url: "",
@@ -14,7 +14,7 @@ const data = [
       "https://scontent-sin6-2.cdninstagram.com/v/t51.2885-15/e35/s1080x1080/106032642_165144718528793_1283997449101731081_n.jpg?_nc_ht=scontent-sin6-2.cdninstagram.com&_nc_cat=105&_nc_ohc=YmQOosmRUNsAX-jSES6&oh=f3fd0d9998f3259f887761911840154c&oe=5F68D7F3",
     caption:
       "#BLACKPINK #블랙핑크 #HowYouLikeThat #DANCE_PERFORMANCE_VIDEO #안무영상 #200MILLION #YOUTUBE #YG",
-    like: "100000",
+    like: "9876",
     post_url:
       "https://instagram.fsgn5-7.fna.fbcdn.net/v/t51.2885-15/e35/117759132_347407886269219_787269791475855959_n.jpg?_nc_ht=instagram.fsgn5-7.fna.fbcdn.net&_nc_cat=1&_nc_ohc=S3C6PfycFAwAX9-hwRS&oh=9124e0bd7b5987efe5c61407c4c18e05&oe=5F6812FC",
     username: "blackpink_official",
@@ -38,8 +38,9 @@ const data = [
         avatar_url:
           "https://scontent.fsgn5-1.fna.fbcdn.net/v/t1.0-9/83067209_2503666736575500_2763457244728131584_o.jpg?_nc_cat=101&_nc_sid=09cbfe&_nc_ohc=BAM-Lydpw84AX_XeAa3&_nc_ht=scontent.fsgn5-1.fna&oh=405ec498b6338e7905cd22b101b60e85&oe=5F609B83",
         username: "pdao.97",
-        comment:"Jisoo queen spoiler. See she is said tomorrow and now poster huhuu i love her so much. SELPINK IS COMING."
-      }
+        comment:
+          "Jisoo queen spoiler. See she is said tomorrow and now poster huhuu i love her so much. SELPINK IS COMING.",
+      },
     ],
   },
   {
@@ -67,4 +68,8 @@ const data = [
   },
 ];
 
-export default data;
+const currentUser = {
+  username: "viet.do97",
+  avatart_url:""
+}
+export { posts, currentUser };

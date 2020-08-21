@@ -22,7 +22,7 @@ const Post = (props) => {
         caption={props.caption}
       ></PostCaption>
       <PostListComment comments = {props.comments}></PostListComment>
-      <PostInputComment></PostInputComment>
+      <PostInputComment key={props.key}></PostInputComment>
     </div>
   );
 };
