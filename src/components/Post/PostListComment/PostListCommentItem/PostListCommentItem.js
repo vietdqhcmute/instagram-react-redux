@@ -1,6 +1,5 @@
 import React from "react";
 import "./PostListCommentItem.css";
-import { Avatar } from "@material-ui/core";
 
 const PostListCommentItem = (props) => {
   return (

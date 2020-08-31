@@ -21,8 +21,8 @@ const Post = (props) => {
         username={props.username}
         caption={props.caption}
       ></PostCaption>
-      <PostListComment comments = {props.comments}></PostListComment>
-      <PostInputComment key={props.key}></PostInputComment>
+      <PostListComment id={props.id}></PostListComment>
+      <PostInputComment id={props.id}></PostInputComment>
     </div>
   );
 };

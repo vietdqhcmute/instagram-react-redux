@@ -1,21 +1,23 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 
 import "./HomePage.css";
 
 import Post from "../../components/Post/Post";
+import { posts } from "../../data";
 const HomePage = (props) => {
-
+  const [posts, setPosts] = useState([])
   useEffect(() => {
-    props.onGetAllPost()
-  },[]);
+    props.onGetAllPost();
+  }, []);
 
   return (
     <div className="homepage">
       <div className="homepage__posts">
-        {props.posts.map((post, id) => (
+        {props.posts.map((post) => (
           <Post
-            key={id}
+            key={post.id}
+            id={post.id}
             username={post.username}
             avatar_url={post.avatar_url}
             post_url={post.post_url}
@@ -30,7 +32,10 @@ const HomePage = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  return state;
+  return {
+    posts: state.posts,
+    currentUser: state.currentUser
+  };
 };
 
 const mapDispatchToProps = (dispatch) => {
@@ -40,4 +45,3 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
-// export default HomePage;

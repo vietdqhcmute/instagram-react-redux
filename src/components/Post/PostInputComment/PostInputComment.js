@@ -7,7 +7,7 @@ import { Button } from "@material-ui/core";
 const PostInputComment = (props) => {
   const [inputComment, setInputComment] = useState([]);
   const handlePost = () => {
-    props.onHandlePost([inputComment, props]);
+    props.onHandlePost({ input: inputComment, postId: props.id });
     setInputComment("");
   };
 
@@ -47,8 +47,8 @@ const mapDispatchToProps = (dispatch) => {
     onHandlePost: (params) =>
       dispatch({
         type: "POST_COMMENT_BY_POST_ID",
-        val: params["inputComment"],
-        key: params["key"],
+        comment: params["input"],
+        postId: params["postId"],
       }),
   };
 };
