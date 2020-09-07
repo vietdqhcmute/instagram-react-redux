@@ -8,7 +8,7 @@ const PostHeader = (props) => {
       <Avatar
         className="post-header__avatar"
         alt={props.username}
-        src={props.avatar_url}
+        src={props.avatarUrl}
       ></Avatar>
       <h4 className="post-header__username">{props.username}</h4>
     </div>

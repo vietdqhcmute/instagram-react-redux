@@ -47,7 +47,7 @@ const mapDispatchToProps = (dispatch) => {
     onHandlePost: (params) =>
       dispatch({
         type: "POST_COMMENT_BY_POST_ID",
-        comment: params["input"],
+        commentText: params["input"],
         postId: params["postId"],
       }),
   };

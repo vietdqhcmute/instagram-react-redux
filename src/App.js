@@ -6,14 +6,17 @@ import HomePage from "./container/HomePage/HomePage";
 import Topbar from "./components/Topbar/Topbar";
 import Aux from "./hoc/Aux";
 
+import { getCurrentUser } from "./actions/userActions";
+
 function App(props) {
-  useEffect(()=>{
+  useEffect(() => {
     props.getCurrentUser();
-  })
+  },[]);
+
   return (
     <div className="App">
       <div className="app__topbar">
-        <Topbar></Topbar>
+        <Topbar logedUser = {props.currentUser}></Topbar>
       </div>
       <div className="app__content">
         <div className="app__spacebar"></div>
@@ -27,13 +30,13 @@ function App(props) {
 
 const mapStateToProps = (state) => {
   return {
-    currentUser: state.currentUser
+    currentUser: state.userReducer.currentUser,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getCurrentUser: () => dispatch({ type: "GET_CURRENT_USER" }),
+    getCurrentUser: () => dispatch(getCurrentUser()),
   };
 };
 

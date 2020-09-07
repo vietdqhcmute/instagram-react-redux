@@ -2,45 +2,48 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 
 import "./HomePage.css";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 import Post from "../../components/Post/Post";
-import { posts } from "../../data";
+import { getAllPosts } from "../../actions/postActions";
 const HomePage = (props) => {
-  const [posts, setPosts] = useState([])
   useEffect(() => {
-    props.onGetAllPost();
+    props.onGetAllPosts();
   }, []);
-
-  return (
-    <div className="homepage">
-      <div className="homepage__posts">
-        {props.posts.map((post) => (
-          <Post
-            key={post.id}
-            id={post.id}
-            username={post.username}
-            avatar_url={post.avatar_url}
-            post_url={post.post_url}
-            like={post.like}
-            caption={post.caption}
-            comments={post.comments}
-          ></Post>
-        ))}
+  if (props.isLoading) {
+    return <CircularProgress></CircularProgress>;
+  } else {
+    return (
+      <div className="homepage">
+        <div className="homepage__posts">
+          {props.posts.map((post) => (
+            <Post
+              key={post.id}
+              id={post.id}
+              username={post.author.username}
+              avatarUrl={post.author.avatarUrl}
+              imageUrl={post.imageUrl}
+              like={post.like}
+              caption={post.caption}
+            ></Post>
+          ))}
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 };
 
 const mapStateToProps = (state) => {
   return {
-    posts: state.posts,
-    currentUser: state.currentUser
+    posts: state.postReducer.posts,
+    currentUser: state.userReducer.currentUser,
+    isLoading: state.postReducer.isLoading,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onGetAllPost: () => dispatch({ type: "GET_ALL_POST" }),
+    onGetAllPosts: () => dispatch(getAllPosts()),
   };
 };
 

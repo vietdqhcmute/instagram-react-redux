@@ -12,16 +12,16 @@ const Post = (props) => {
     <div className="post">
       <PostHeader
         username={props.username}
-        avatar_url={props.avatar_url}
+        avatarUrl={props.avatarUrl}
       ></PostHeader>
-      <img className="post__image" alt="" src={props.post_url}></img>
+      <img className="post__image" alt="" src={props.imageUrl}></img>
       <PostToolbar></PostToolbar>
       <h5 className="post__likes-number">{props.like} likes</h5>
       <PostCaption
         username={props.username}
         caption={props.caption}
       ></PostCaption>
-      <PostListComment id={props.id}></PostListComment>
+      {/* <PostListComment comments={props.comments}></PostListComment> */}
       <PostInputComment id={props.id}></PostInputComment>
     </div>
   );

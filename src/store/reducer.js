@@ -1,46 +1,36 @@
 // import { db } from "../firebase";
-import { posts, currentUser, comments } from "../data";
-
+import { posts, currentUser } from "../data";
+import {
+  GET_ALL_POSTS,
+  POST_COMMENT_BY_POST_ID,
+  GET_CURRENT_USER,
+} from "../actions/actionTypes";
 const INTIAL_STATE = {
   posts: [],
   currentUser: {},
-  comments: [],
 };
 
 const reducer = (state = INTIAL_STATE, action) => {
   switch (action.type) {
-    case "GET_ALL_POST":
+    case GET_ALL_POSTS:
       return {
         ...state,
         posts: state.posts.concat(posts),
       };
-    case "GET_COMMENT_BY_POST_ID":
+    case POST_COMMENT_BY_POST_ID:
+      const initComment = newComment(action.commentText);
       return {
         ...state,
-        comments: state.comments.concat(getCommentByPostId(action.postId)),
-      };
-    case "POST_COMMENT_BY_POST_ID":
-      return {
-        ...state,
-      };
-    case "GET_CURRENT_USER":
-      return {
-        ...state,
-        currentUser: currentUser,
       };
     default:
       return state;
   }
 };
-const newComment = (commentText) => {
-  return {
-    id: Math.random().toString(36).substring(7),
-    avatar_url: currentUser.avatart_url,
-    commentText: commentText,
-    username: currentUser.username,
-  };
-};
+const newComment = (commentText) => ({
+  id: Math.random().toString(36).substring(7),
+  avatar_url: currentUser.avatart_url,
+  commentText: commentText,
+  username: currentUser.username,
+});
 
-const getCommentByPostId = (postId) =>
-  comments.filter((el) => el.postId === postId);
 export default reducer;

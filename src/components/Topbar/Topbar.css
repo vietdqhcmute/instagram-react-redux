@@ -1,10 +1,20 @@
 .topbar{
   background-color: white;
+  display: flex;
   object-fit: contain;
-  padding: 20px 30px;
+  padding: 8px 150px;
   object-fit: contain;
+  justify-content: space-between;
   border-bottom: 1px solid lightgray;
 }
 .topbar__logo{
 
+}
+.topbar__loged-user-info{
+
+}
+.topbar__loged-user-tool{
+  display: flex;
+  justify-content: space-between;
+  width: 250px;
 }
