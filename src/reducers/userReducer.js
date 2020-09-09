@@ -1,4 +1,4 @@
-import { GET_CURRENT_USER } from "../actions/actionTypes";
+import { GET_CURRENT_USER } from "../@types/actionTypes";
 
 const initialState = {
   currentUser: {},

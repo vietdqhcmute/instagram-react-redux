@@ -6,8 +6,8 @@ const PostListCommentItem = (props) => {
     <div className="comment-item">
       <div className="comment-item__text">
         <p>
-          <span className="comment-item__username">{props.commentInfo.username} </span>
-          {props.commentInfo.comment}
+          <span className="comment-item__username">{props.commentInfo.user.username} </span>
+          {props.commentInfo.description}
         </p>
       </div>
     </div>

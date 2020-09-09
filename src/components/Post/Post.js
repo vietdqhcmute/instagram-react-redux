@@ -21,7 +21,7 @@ const Post = (props) => {
         username={props.username}
         caption={props.caption}
       ></PostCaption>
-      {/* <PostListComment comments={props.comments}></PostListComment> */}
+      <PostListComment comments={props.comments}></PostListComment>
       <PostInputComment id={props.id}></PostInputComment>
     </div>
   );

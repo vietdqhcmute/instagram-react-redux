@@ -6,7 +6,6 @@ import ChatBubbleOutlineIcon from "@material-ui/icons/ChatBubbleOutline";
 import SendIcon from "@material-ui/icons/Send";
 import HomeIcon from "@material-ui/icons/Home";
 const Topbar = (props) => {
-  console.log(props);
   return (
     <div className="topbar">
       <img

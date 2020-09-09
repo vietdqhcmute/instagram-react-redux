@@ -3,7 +3,7 @@ import {
   GET_ALL_POSTS_STARTED,
   GET_ALL_POSTS_SUCCESS,
   GET_ALL_POSTS_FAILED,
-} from "./actionTypes";
+} from "../@types/actionTypes";
 
 const getAllPosts = () => {
   return (dispatch) => {

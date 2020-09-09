@@ -1,4 +1,4 @@
-import { GET_CURRENT_USER } from "./actionTypes";
+import { GET_CURRENT_USER } from "../@types/actionTypes";
 
 const getCurrentUser = () => ({ type: "GET_CURRENT_USER", payload: currentUser()});
 

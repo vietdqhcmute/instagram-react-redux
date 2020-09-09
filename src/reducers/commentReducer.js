@@ -1,9 +1,10 @@
-import { POST_COMMENT_BY_POST_ID } from "../actions/actionTypes";
+import { CREATE_NEW_COMMENT } from "../@types/actionTypes";
 const initialState = {};
 
 const commentReducer = (state = initialState, action) => {
   switch (action.type) {
-    case POST_COMMENT_BY_POST_ID:
+    case CREATE_NEW_COMMENT:
+      debugger
       const initComment = newComment(action.commentText);
       return {
         ...state,

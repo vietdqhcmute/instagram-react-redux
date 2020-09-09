@@ -5,7 +5,7 @@ import "./HomePage.css";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
 import Post from "../../components/Post/Post";
-import { getAllPosts } from "../../actions/postActions";
+import { getAllPosts } from "../../actions/Post.actions";
 const HomePage = (props) => {
   useEffect(() => {
     props.onGetAllPosts();
@@ -25,6 +25,7 @@ const HomePage = (props) => {
               imageUrl={post.imageUrl}
               like={post.like}
               caption={post.caption}
+              comments={post.comments}
             ></Post>
           ))}
         </div>

@@ -6,7 +6,7 @@ import HomePage from "./container/HomePage/HomePage";
 import Topbar from "./components/Topbar/Topbar";
 import Aux from "./hoc/Aux";
 
-import { getCurrentUser } from "./actions/userActions";
+import { getCurrentUser } from "./actions/User.actions";
 
 function App(props) {
   useEffect(() => {

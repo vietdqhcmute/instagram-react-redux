@@ -4,7 +4,7 @@ import {
   GET_ALL_POSTS,
   POST_COMMENT_BY_POST_ID,
   GET_CURRENT_USER,
-} from "../actions/actionTypes";
+} from "../@types/actionTypes";
 const INTIAL_STATE = {
   posts: [],
   currentUser: {},
