@@ -1,15 +1,29 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
-
+import * as postAPIs from "../../api/postServices";
 import "./HomePage.css";
 import CircularProgress from "@material-ui/core/CircularProgress";
 
 import Post from "../../components/Post/Post";
-import { getAllPosts } from "../../actions/Post.actions";
+import {
+  getAllPostsStarted,
+  getAllPostsSuccess,
+  getAllPostsFailed,
+} from "../../actions/Post.actions";
+
 const HomePage = (props) => {
   useEffect(() => {
-    props.onGetAllPosts();
+    props.dispatchGetAllPostsStarted();
+    postAPIs
+      .fetchAllPosts()
+      .then((res) => {
+        props.dispatchGetAllPostsSuccess(res.data);
+      })
+      .catch((error) => {
+        props.dispatchGetAllPostsFailed(error);
+      });
   }, []);
+
   if (props.isLoading) {
     return <CircularProgress></CircularProgress>;
   } else {
@@ -44,7 +58,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onGetAllPosts: () => dispatch(getAllPosts()),
+    dispatchGetAllPostsStarted: () => dispatch(getAllPostsStarted()),
+    dispatchGetAllPostsSuccess: (data) => dispatch(getAllPostsSuccess(data)),
+    dispatchGetAllPostsFailed: (error) => dispatch(getAllPostsFailed(error)),
   };
 };
 
