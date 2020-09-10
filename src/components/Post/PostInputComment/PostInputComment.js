@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import "./PostInputComment.css";
 
 import { Button } from "@material-ui/core";
-import { createNewComment } from "../../../actions/Comment.actions";
+import { createNewCommentRequested } from "../../../actions/Comment.actions";
 
 const PostInputComment = (props) => {
   const [inputComment, setInputComment] = useState([]);
@@ -50,7 +50,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     onHandlePost: (params) =>
-      dispatch(createNewComment(params["input"], params["postId"], params["currentUserId"])),
+      dispatch(createNewCommentRequested(params["input"], params["postId"], params["currentUserId"])),
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(PostInputComment);

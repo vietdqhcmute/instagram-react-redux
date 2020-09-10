@@ -1,6 +1,6 @@
-import axios from "axios";
-import { API_DOMAIN } from "../config";
+import API from "./api.config";
+
 const fetchAllPosts = () => {
-  return axios.get(API_DOMAIN + "posts");
+  return API.get("/posts");
 };
 export { fetchAllPosts };
