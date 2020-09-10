@@ -18,14 +18,14 @@ const HomePage = (props) => {
   const currentUser = useSelector((state) => state.userReducer.currentUser);
 
   useEffect(() => {
-    dispatch(getAllPostsStarted())
+    dispatch(getAllPostsStarted());
     postAPIs
       .fetchAllPosts()
       .then((res) => {
-        dispatch(getAllPostsSuccess(res.data))
+        dispatch(getAllPostsSuccess(res.data));
       })
       .catch((error) => {
-        dispatch(getAllPostsFailed(error))
+        dispatch(getAllPostsFailed(error));
       });
   }, []);
 

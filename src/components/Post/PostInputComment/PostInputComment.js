@@ -1,18 +1,21 @@
 import React, { useState } from "react";
-import { connect, useSelector, useDispatch } from "react-redux";
-import "./PostInputComment.css";
+import { useDispatch, useSelector } from "react-redux";
 
+import "./PostInputComment.css";
 import { Button } from "@material-ui/core";
+
 import * as commentAction from "../../../actions/Comment.actions";
 import * as commentAPI from "../../../api/commentService";
 
 const PostInputComment = (props) => {
   const dispatch = useDispatch();
+  const currentUser = useSelector((state) => state.userReducer.currentUser);
   const [inputComment, setInputComment] = useState([]);
+
   const handlePost = () => {
     dispatch(commentAction.createNewCommentRequested());
     commentAPI
-      .postComment()
+      .postComment(currentUser.id, props.id, inputComment)
       .then((res) => {
         dispatch(commentAction.createNewCommentSuccess(res.data));
       })

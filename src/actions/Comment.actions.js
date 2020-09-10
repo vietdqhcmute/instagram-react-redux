@@ -13,9 +13,11 @@ const createNewCommentRequested = (commentText, postId, userId) => ({
   },
 });
 
-const createNewCommentSuccess = () => ({
+const createNewCommentSuccess = (postUpdated) => ({
   type: CREATE_NEW_COMMENT_SUCCESSED,
-  payload: {},
+  payload: {
+    postUpdated: postUpdated,
+  },
 });
 
 const createNewCommentFailed = () => ({

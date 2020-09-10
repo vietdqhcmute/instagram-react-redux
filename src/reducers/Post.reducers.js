@@ -2,6 +2,7 @@ import {
   GET_ALL_POSTS_STARTED,
   GET_ALL_POSTS_SUCCESS,
   GET_ALL_POSTS_FAILED,
+  CREATE_NEW_COMMENT_SUCCESSED,
 } from "../@types/actionTypes";
 
 const initialState = {
@@ -27,6 +28,15 @@ const postReducer = (state = initialState, action) => {
         ...state,
         isLoading: false,
         error: action.payload.err,
+      };
+    case CREATE_NEW_COMMENT_SUCCESSED:
+      return {
+        ...state,
+        posts: state.posts.map((post) =>
+          post.id == action.payload.postUpdated.id
+            ? action.payload.postUpdated
+            : post
+        ),
       };
     default:
       return state;
