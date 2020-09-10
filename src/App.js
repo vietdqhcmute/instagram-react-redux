@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import {  useDispatch, useSelector } from "react-redux";
 
 import "./App.css";
+import Modal from '@material-ui/core/Modal';
+
 import HomePage from "./container/HomePage/HomePage";
 import Topbar from "./components/Topbar/Topbar";
 import Aux from "./hoc/Aux";

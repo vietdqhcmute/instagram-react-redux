@@ -10,7 +10,7 @@ import * as commentAPI from "../../../api/commentService";
 const PostInputComment = (props) => {
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.userReducer.currentUser);
-  const [inputComment, setInputComment] = useState([]);
+  const [inputComment, setInputComment] = useState("");
 
   const handlePost = () => {
     dispatch(commentAction.createNewCommentRequested());
@@ -28,6 +28,11 @@ const PostInputComment = (props) => {
   const handleCommentChange = (e) => {
     setInputComment(e.target.value);
   };
+
+  const isEmptyInput = () => {
+    return inputComment === "";
+  };
+
   return (
     <div className="post-comment">
       <form>
@@ -43,6 +48,7 @@ const PostInputComment = (props) => {
             type="submit"
             href="#text-buttons"
             color="primary"
+            disabled={isEmptyInput()}
           >
             Post
           </Button>
