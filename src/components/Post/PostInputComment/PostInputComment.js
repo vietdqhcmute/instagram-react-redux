@@ -1,18 +1,24 @@
 import React, { useState } from "react";
-import { connect } from "react-redux";
+import { connect, useSelector, useDispatch } from "react-redux";
 import "./PostInputComment.css";
 
 import { Button } from "@material-ui/core";
-import { createNewCommentRequested } from "../../../actions/Comment.actions";
+import * as commentAction from "../../../actions/Comment.actions";
+import * as commentAPI from "../../../api/commentService";
 
 const PostInputComment = (props) => {
+  const dispatch = useDispatch();
   const [inputComment, setInputComment] = useState([]);
   const handlePost = () => {
-    props.onHandlePost({
-      input: inputComment,
-      postId: props.id,
-      currentUserId: props.userReducer.id,
-    });
+    dispatch(commentAction.createNewCommentRequested());
+    commentAPI
+      .postComment()
+      .then((res) => {
+        dispatch(commentAction.createNewCommentSuccess(res.data));
+      })
+      .catch((error) => {
+        dispatch(commentAction.createNewCommentFailed(error));
+      });
     setInputComment("");
   };
 
@@ -43,14 +49,4 @@ const PostInputComment = (props) => {
   );
 };
 
-const mapStateToProps = (state) => {
-  return state;
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    onHandlePost: (params) =>
-      dispatch(createNewCommentRequested(params["input"], params["postId"], params["currentUserId"])),
-  };
-};
-export default connect(mapStateToProps, mapDispatchToProps)(PostInputComment);
+export default PostInputComment;

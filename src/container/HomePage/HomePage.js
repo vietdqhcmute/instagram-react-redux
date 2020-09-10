@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { connect } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import * as postAPIs from "../../api/postServices";
 import "./HomePage.css";
 import CircularProgress from "@material-ui/core/CircularProgress";
@@ -12,25 +12,30 @@ import {
 } from "../../actions/Post.actions";
 
 const HomePage = (props) => {
+  const dispatch = useDispatch();
+  const posts = useSelector((state) => state.postReducer.posts);
+  const isLoading = useSelector((state) => state.postReducer.isLoading);
+  const currentUser = useSelector((state) => state.userReducer.currentUser);
+
   useEffect(() => {
-    props.dispatchGetAllPostsStarted();
+    dispatch(getAllPostsStarted())
     postAPIs
       .fetchAllPosts()
       .then((res) => {
-        props.dispatchGetAllPostsSuccess(res.data);
+        dispatch(getAllPostsSuccess(res.data))
       })
       .catch((error) => {
-        props.dispatchGetAllPostsFailed(error);
+        dispatch(getAllPostsFailed(error))
       });
   }, []);
 
-  if (props.isLoading) {
+  if (isLoading) {
     return <CircularProgress></CircularProgress>;
   } else {
     return (
       <div className="homepage">
         <div className="homepage__posts">
-          {props.posts.map((post) => (
+          {posts.map((post) => (
             <Post
               key={post.id}
               id={post.id}
@@ -48,20 +53,4 @@ const HomePage = (props) => {
   }
 };
 
-const mapStateToProps = (state) => {
-  return {
-    posts: state.postReducer.posts,
-    currentUser: state.userReducer.currentUser,
-    isLoading: state.postReducer.isLoading,
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    dispatchGetAllPostsStarted: () => dispatch(getAllPostsStarted()),
-    dispatchGetAllPostsSuccess: (data) => dispatch(getAllPostsSuccess(data)),
-    dispatchGetAllPostsFailed: (error) => dispatch(getAllPostsFailed(error)),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
+export default HomePage;

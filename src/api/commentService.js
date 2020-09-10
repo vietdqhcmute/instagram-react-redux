@@ -2,6 +2,6 @@ import API from "./api.config";
 
 
 const postComment = () => {
-  return API.get("posts");
+  return API.post("posts", {});
 };
 export { postComment };

@@ -22,4 +22,8 @@ const createNewCommentFailed = () => ({
   type: CREATE_NEW_COMMENT_FAILED,
   payload: {},
 });
-export { createNewCommentRequested };
+export {
+  createNewCommentRequested,
+  createNewCommentSuccess,
+  createNewCommentFailed,
+};

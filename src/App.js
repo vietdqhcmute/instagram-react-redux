@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { connect } from "react-redux";
+import { connect, useDispatch, useSelector } from "react-redux";
 
 import "./App.css";
 import HomePage from "./container/HomePage/HomePage";
@@ -9,14 +9,17 @@ import Aux from "./hoc/Aux";
 import { getCurrentUser } from "./actions/User.actions";
 
 function App(props) {
+  const dispatch = useDispatch();
+  const currentUser = useSelector((state) => state.userReducer.currentUser);
+
   useEffect(() => {
-    props.getCurrentUser();
-  },[]);
+    dispatch(getCurrentUser());
+  }, []);
 
   return (
     <div className="App">
       <div className="app__topbar">
-        <Topbar logedUser = {props.currentUser}></Topbar>
+        <Topbar logedUser={currentUser}></Topbar>
       </div>
       <div className="app__content">
         <div className="app__spacebar"></div>
@@ -28,16 +31,4 @@ function App(props) {
   );
 }
 
-const mapStateToProps = (state) => {
-  return {
-    currentUser: state.userReducer.currentUser,
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    getCurrentUser: () => dispatch(getCurrentUser()),
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;
